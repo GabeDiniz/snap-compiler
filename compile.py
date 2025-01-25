@@ -23,6 +23,9 @@ def main():
     if len(sys.argv) != 2:
         print("Usage: python compile.py <output_filename>")
         sys.exit(1)
+    elif not os.path.exists(OUTPUT_DIR):
+        print(f"Error: The '{OUTPUT_DIR}' folder does not exist. Make sure you the folder exists in the current directory.")
+        sys.exit(1)
     
     output_filename = sys.argv[1]
     if not output_filename.endswith(".pdf"):
