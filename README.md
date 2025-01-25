@@ -18,10 +18,27 @@ Determine the region of your screenshot by running `python mouse_location.py` to
 
 #### Customize the Region
 
-Define the area of the screen you want to capture by setting the SCREENSHOT_REGION variable in the script.
+Define the area of the screen you want to capture by setting the SCREENSHOT_REGION variable in main.py.
 
-Determine Width and Height by calculating width = x2 - x1 | height = y2 - y1.
+Determine Width and Height by calculating width = x2 - x1 | height = y2 - y1 that you obtained from the step above.
 
 ```
 SCREENSHOT_REGION = (200, 163, 632, 831)  # x, y, width, height
+```
+
+#### Customize the Number of Screenshots
+
+Define how many screenshots you want to take in main.py and the delay between them.
+
+```
+total_screenshots = 10
+delay_between_actions = 2  # Adjust delay if needed
+```
+
+#### Screenshot and compile
+
+Run main.py to take your screenshots, then run compile.py to compile all of the screenshots into 1 PDF. Note, if you want to change the dimensions of the screenshot on the PDF, edit the following line in compile.py. This is where the image will be placed and where dimensions of the screenshot are set.
+
+```
+pdf.image(img_path, x=0, y=0, w=210, h=297)  # A4 size
 ```
