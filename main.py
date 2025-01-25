@@ -10,7 +10,6 @@ SCREENSHOT_REGION = (230, 140, 590, 780)  # x, y, width, height
 OUTPUT_DIR = "screenshots"
 
 # Parameters
-contents_screenshots = 8
 total_screenshots = 636
 delay_between_actions = 2  # Adjust delay if needed
 
@@ -27,18 +26,18 @@ def take_screenshot(index):
 
 # Main script
 def main():
-    for i in range(contents_screenshots + total_screenshots):
-        print(f"Taking screenshot {i+1}/{contents_screenshots + total_screenshots}...")
+    for i in range(total_screenshots):
+        print(f"Taking screenshot {i+1}/{total_screenshots}...")
         take_screenshot(i)
         
         print("Next page...")
         pyautogui.moveTo(522, 1005)
         pyautogui.click() 
         
-        if i + 1 == contents_screenshots:
-            print("FINISHED TABLE OF CONTENTS... SLEEPING FOR 15")
-            time.sleep(15)
-            print("\nContinuing...")
+        # if i + 1 == contents_screenshots:
+        #     print("FINISHED TABLE OF CONTENTS... SLEEPING FOR 15")
+        #     time.sleep(15)
+        #     print("\nContinuing...")
         time.sleep(delay_between_actions)
 
 if __name__ == "__main__":
