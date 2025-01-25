@@ -1,9 +1,9 @@
-from fpdf import FPDF
 import os
+import sys
+from fpdf import FPDF
 
 # Directory to save screenshots
 OUTPUT_DIR = "screenshots"
-PDF_OUTPUT = "compiled_screenshots.pdf"
 
 # Function to compile screenshots into a PDF
 def compile_screenshots_to_pdf(output_pdf):
@@ -19,9 +19,17 @@ def compile_screenshots_to_pdf(output_pdf):
     print(f"PDF saved as {output_pdf}")
 
 # Main script
-def main():    
-    print("Compiling screenshots into PDF...")
-    compile_screenshots_to_pdf(PDF_OUTPUT)
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python compile.py <output_filename>")
+        sys.exit(1)
+    
+    output_filename = sys.argv[1]
+    if not output_filename.endswith(".pdf"):
+        output_filename += ".pdf"
+
+    print("Compiling screenshots into PDF...\nPlease be patient. This script can take a while if there are a lot of screenshots.")
+    compile_screenshots_to_pdf(output_filename)
     print("Done!")
 
 if __name__ == "__main__":
